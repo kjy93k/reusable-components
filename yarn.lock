@@ -1959,6 +1959,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@next/font@npm:^13.0.7":
+  version: 13.0.7
+  resolution: "@next/font@npm:13.0.7"
+  checksum: 88324e483561ed1372b97d434b98cff3c3adfeafc4217b45ff96f429c42ea4c6eebb089b34d8ef353aaf6413aa5f6d918a2ea83701ad129d2cc6f6751184d82a
+  languageName: node
+  linkType: hard
+
 "@next/swc-android-arm-eabi@npm:13.0.6":
   version: 13.0.6
   resolution: "@next/swc-android-arm-eabi@npm:13.0.6"
@@ -9177,7 +9184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html2canvas@npm:^1.0.0-rc.5":
+"html2canvas@npm:^1.0.0-rc.5, html2canvas@npm:^1.4.1":
   version: 1.4.1
   resolution: "html2canvas@npm:1.4.1"
   dependencies:
@@ -10293,6 +10300,15 @@ __metadata:
     graceful-fs:
       optional: true
   checksum: 7af3b8e1ac8fe7f1eccc6263c6ca14e1966fcbc74b618d3c78a0a2075579487547b94f72b7a1114e844a1e15bb00d440e5d1720bfc4612d790a6f285d5ea8354
+  languageName: node
+  linkType: hard
+
+"jspdf-autotable@npm:^3.5.28":
+  version: 3.5.28
+  resolution: "jspdf-autotable@npm:3.5.28"
+  peerDependencies:
+    jspdf: ^2.5.1
+  checksum: db6593cf29dc3e31712040f8537d9c4f52451bc5a26fd8731d379e9e046e69a08f59f78bb4bc74cfb49a8759b6a3f3df237bd97ad4c4b4dfb3258822bc28f488
   languageName: node
   linkType: hard
 
@@ -13354,6 +13370,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.20.5
     "@mdx-js/react": ^1.6.22
+    "@next/font": ^13.0.7
     "@storybook/addon-actions": ^6.5.14
     "@storybook/addon-docs": ^6.5.14
     "@storybook/addon-essentials": ^6.5.14
@@ -13375,7 +13392,9 @@ __metadata:
     eslint-config-next: 13.0.6
     eslint-config-prettier: ^8.5.0
     eslint-plugin-storybook: ^0.6.8
+    html2canvas: ^1.4.1
     jspdf: ^2.5.1
+    jspdf-autotable: ^3.5.28
     next: 13.0.6
     react: 18.2.0
     react-dom: 18.2.0

@@ -30,6 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@babel/core", "npm:7.20.5"],\
             ["@mdx-js/react", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:1.6.22"],\
+            ["@next/font", "npm:13.0.7"],\
             ["@storybook/addon-actions", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
             ["@storybook/addon-docs", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
             ["@storybook/addon-essentials", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
@@ -51,7 +52,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:13.0.6"],\
             ["eslint-config-prettier", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:8.5.0"],\
             ["eslint-plugin-storybook", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:0.6.8"],\
+            ["html2canvas", "npm:1.4.1"],\
             ["jspdf", "npm:2.5.1"],\
+            ["jspdf-autotable", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:3.5.28"],\
             ["next", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:13.0.6"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:18.2.0"],\
@@ -4440,6 +4443,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@next/eslint-plugin-next", "npm:13.0.6"],\
             ["glob", "npm:7.1.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@next/font", [\
+        ["npm:13.0.7", {\
+          "packageLocation": "./.yarn/cache/@next-font-npm-13.0.7-4fd9ea2591-88324e4835.zip/node_modules/@next/font/",\
+          "packageDependencies": [\
+            ["@next/font", "npm:13.0.7"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -15112,6 +15124,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["jspdf-autotable", [\
+        ["npm:3.5.28", {\
+          "packageLocation": "./.yarn/cache/jspdf-autotable-npm-3.5.28-f33ec918e5-db6593cf29.zip/node_modules/jspdf-autotable/",\
+          "packageDependencies": [\
+            ["jspdf-autotable", "npm:3.5.28"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:3.5.28", {\
+          "packageLocation": "./.yarn/__virtual__/jspdf-autotable-virtual-8705dbafb2/0/cache/jspdf-autotable-npm-3.5.28-f33ec918e5-db6593cf29.zip/node_modules/jspdf-autotable/",\
+          "packageDependencies": [\
+            ["jspdf-autotable", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:3.5.28"],\
+            ["@types/jspdf", null],\
+            ["jspdf", "npm:2.5.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/jspdf",\
+            "jspdf"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["jsx-ast-utils", [\
         ["npm:3.3.3", {\
           "packageLocation": "./.yarn/cache/jsx-ast-utils-npm-3.3.3-3d3171e1e4-a2ed78cac4.zip/node_modules/jsx-ast-utils/",\
@@ -18548,6 +18582,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["reusable-components", "workspace:."],\
             ["@babel/core", "npm:7.20.5"],\
             ["@mdx-js/react", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:1.6.22"],\
+            ["@next/font", "npm:13.0.7"],\
             ["@storybook/addon-actions", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
             ["@storybook/addon-docs", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
             ["@storybook/addon-essentials", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:6.5.14"],\
@@ -18569,7 +18604,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-next", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:13.0.6"],\
             ["eslint-config-prettier", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:8.5.0"],\
             ["eslint-plugin-storybook", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:0.6.8"],\
+            ["html2canvas", "npm:1.4.1"],\
             ["jspdf", "npm:2.5.1"],\
+            ["jspdf-autotable", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:3.5.28"],\
             ["next", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:13.0.6"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:eb76750af1fe0e2a4ae8920b7fb673b01116f7ace87982b5a8421457910c799393dd3a5fa2098fc416a45e2a499c626f4e58628de031c72f8a99493c6359df53#npm:18.2.0"],\
