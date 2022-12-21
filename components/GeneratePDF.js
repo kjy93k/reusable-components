@@ -53,74 +53,139 @@ export default function GeneratePDF({ person }) {
     pdf.setFontSize(16).text('hello world 헬로 월드', 15, 20);
     pdf.setLineWidth(0.01).line(15, 24, 195, 24);
 
-    pdf.html(html, {
-      callback: function (pdf) {
-        html2canvas(document.getElementById('content'), {
-          allowTaint: true,
-          useCORS: true,
-          logging: true,
-          scale: 2, // 기본 96dpi에서 해상도를 두 배로 증가
-          height: window.outerHeight + window.innerHeight,
-          windowHeight: window.outerHeight + window.innerHeight,
-        }).then((canvas) => {
-          console.log(canvas, document.getElementById('content'));
-          const imgData = canvas.toDataURL('image/png');
-          const imgWidth = 210 - 30; // a4 너비 - 양쪽 여백
-          const pageHeight = imgWidth * 1.414;
-          const imgHeight = (canvas.height * imgWidth) / canvas.width;
-          let heightLeft = imgHeight;
-          let position = 0;
+    html2canvas(document.getElementById('content'), {
+      allowTaint: true,
+      useCORS: true,
+      logging: true,
+      scale: 2, // 기본 96dpi에서 해상도를 두 배로 증가
+      // height: window.outerHeight + window.innerHeight,
+      // windowHeight: window.outerHeight + window.innerHeight,
+    }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const imgWidth = 210 - 30; // a4 너비 - 양쪽 여백
+      const pageHeight = imgWidth * 1.414;
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
 
-          pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
-          heightLeft -= pageHeight;
+      pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
 
-          while (heightLeft >= 20) {
-            position = heightLeft = imgHeight;
-            pdf.addPage();
-            pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
-            heightLeft -= pageHeight;
-          }
+      while (heightLeft >= 20) {
+        position = heightLeft = imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
 
-          const columns = [
-            { title: '이름', dataKey: 'name' },
-            { title: '나이', dataKey: 'age' },
-            { title: '국적', dataKey: 'country' },
-          ];
-          pdf.autoTable({
-            style: {
-              font: 'SpoqaHanSansNeoLight',
-              fontSize: 20,
-              cellWidth: 'wrap',
-            },
-            headStyles: {
-              font: 'SpoqaHanSansNeoLight',
-            },
-            columns,
-            body: tableBody,
-            margin: { left: 15, top: 30 },
-          });
-          pdf
-            .setFontSize(12)
-            .text(
-              [
-                'This is another few sentences of text to look at it.',
-                'Just testing the paragraphs to see how they format.',
-                'jsPDF likes arrays for sentences.',
-                'Do paragraphs wrap properly?',
-                'Yes, they do!',
-                'What does it look like?',
-                'Not bad at all.',
-              ],
-              15,
-              80,
-              { align: 'left', maxWidth: 195 },
-            );
-          pdf.save('table.pdf');
-        });
-      },
-      x: 15,
-      y: 15,
+      console.log(canvas, pdf);
+      const columns = [
+        { title: '이름', dataKey: 'name' },
+        { title: '나이', dataKey: 'age' },
+        { title: '국적', dataKey: 'country' },
+      ];
+      pdf.autoTable({
+        style: {
+          font: 'SpoqaHanSansNeoLight',
+          fontSize: 20,
+          cellWidth: 'wrap',
+        },
+        headStyles: {
+          font: 'SpoqaHanSansNeoLight',
+        },
+        columns,
+        body: tableBody,
+        margin: { left: 15, top: 30 },
+      });
+      pdf
+        .setFontSize(12)
+        .text(
+          [
+            'This is another few sentences of text to look at it.',
+            'Just testing the paragraphs to see how they format.',
+            'jsPDF likes arrays for sentences.',
+            'Do paragraphs wrap properly?',
+            'Yes, they do!',
+            'What does it look like?',
+            'Not bad at all.',
+          ],
+          15,
+          80,
+          { align: 'left', maxWidth: 195 },
+        );
+      pdf.save('table.pdf');
     });
+
+    // pdf.html(html, {
+    //   callback: function (pdf) {
+    //     html2canvas(document.getElementById('content'), {
+    //       allowTaint: true,
+    //       useCORS: true,
+    //       logging: true,
+    //       scale: 2, // 기본 96dpi에서 해상도를 두 배로 증가
+    //       // height: window.outerHeight + window.innerHeight,
+    //       // windowHeight: window.outerHeight + window.innerHeight,
+    //     }).then((canvas) => {
+    //       const imgData = canvas.toDataURL('image/png');
+    //       const imgWidth = 210 - 30; // a4 너비 - 양쪽 여백
+    //       const pageHeight = imgWidth * 1.414;
+    //       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    //       let heightLeft = imgHeight;
+    //       let position = 0;
+
+    //       pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
+    //       heightLeft -= pageHeight;
+
+    //       while (heightLeft >= 20) {
+    //         position = heightLeft = imgHeight;
+    //         pdf.addPage();
+    //         pdf.addImage(imgData, 'PNG', 15, position, imgWidth, imgHeight);
+    //         heightLeft -= pageHeight;
+    //       }
+
+    //       console.log(canvas, pdf);
+    //       const columns = [
+    //         { title: '이름', dataKey: 'name' },
+    //         { title: '나이', dataKey: 'age' },
+    //         { title: '국적', dataKey: 'country' },
+    //       ];
+    //       pdf.autoTable({
+    //         style: {
+    //           font: 'SpoqaHanSansNeoLight',
+    //           fontSize: 20,
+    //           cellWidth: 'wrap',
+    //         },
+    //         headStyles: {
+    //           font: 'SpoqaHanSansNeoLight',
+    //         },
+    //         columns,
+    //         body: tableBody,
+    //         margin: { left: 15, top: 30 },
+    //       });
+    //       pdf
+    //         .setFontSize(12)
+    //         .text(
+    //           [
+    //             'This is another few sentences of text to look at it.',
+    //             'Just testing the paragraphs to see how they format.',
+    //             'jsPDF likes arrays for sentences.',
+    //             'Do paragraphs wrap properly?',
+    //             'Yes, they do!',
+    //             'What does it look like?',
+    //             'Not bad at all.',
+    //           ],
+    //           15,
+    //           80,
+    //           { align: 'left', maxWidth: 195 },
+    //         );
+    //       pdf.save('table.pdf');
+    //     });
+    //   },
+    //   x: 15,
+    //   y: 15,
+    //   // width: 500, //target width in the PDF document
+    //   // windowWidth: 600, //window width in CSS pixels
+    // });
   }
 
   return (

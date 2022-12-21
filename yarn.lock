@@ -12889,6 +12889,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:^18.2.0":
+  version: 18.2.0
+  resolution: "react-is@npm:18.2.0"
+  checksum: e72d0ba81b5922759e4aff17e0252bd29988f9642ed817f56b25a3e217e13eea8a7f2322af99a06edb779da12d5d636e9fda473d620df9a3da0df2a74141d53e
+  languageName: node
+  linkType: hard
+
 "react-merge-refs@npm:^1.0.0":
   version: 1.1.0
   resolution: "react-merge-refs@npm:1.1.0"
@@ -13398,7 +13405,9 @@ __metadata:
     next: 13.0.6
     react: 18.2.0
     react-dom: 18.2.0
+    react-is: ^18.2.0
     styled-components: ^5.3.6
+    styled-reset: ^4.4.4
     typescript: 4.7.4
   languageName: unknown
   linkType: soft
@@ -14372,6 +14381,15 @@ __metadata:
     babel-plugin-macros:
       optional: true
   checksum: e5b70476fd9059147dfe35dd912e537e422a7f900cc88f80456c97da495c655598875d64de2199641d627770a7e55ed08be0fd82646bc386791fdb1d0e5af2b1
+  languageName: node
+  linkType: hard
+
+"styled-reset@npm:^4.4.4":
+  version: 4.4.4
+  resolution: "styled-reset@npm:4.4.4"
+  peerDependencies:
+    styled-components: ">=4.0.0 || >=5.0.0"
+  checksum: f8329b583636a37f77615e1706802e37cdbd65243bf2957c77f2277857cd1959219ad6ccef51e62ded536b917bbeb3e419d817501acf1575c49604d769156831
   languageName: node
   linkType: hard
 
