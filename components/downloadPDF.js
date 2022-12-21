@@ -16,12 +16,11 @@ export async function downloadPDF() {
   });
 
   // Slower, Larger, But maintain the html elements
-  // doc.html(document.getElementById('content'), {
-  //   callback: async doc => {
+  // doc.html(document.getElementById('pdf'), {
+  //   callback: async (doc) => {
   //     const pageCount = doc.internal.getNumberOfPages();
   //     doc.deletePage(pageCount);
-  //     await doc.save("favorites.pdf");
-  //     this.working = false;
+  //     await doc.save('favorites.pdf');
   //   },
   // });
 

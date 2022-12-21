@@ -7,7 +7,6 @@ const StyledProductList = styled.div`
   padding: 33px 48px;
   display: flex;
   flex-direction: column;
-  font-family: Arial;
   border: 1px solid transparent;
   box-sizing: border-box;
   border-color: #000;
@@ -30,7 +29,7 @@ const StyledProductList = styled.div`
     }
   }
   .content {
-    margin-top: 24px;
+    margin-top: 40px;
     flex: 1;
 
     .items {
@@ -47,7 +46,8 @@ const StyledProductList = styled.div`
       overflow: hidden;
     }
     .thumbnail {
-      height: 380px;
+      /* height: 380px; */
+      height: 248px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -71,24 +71,41 @@ const StyledProductList = styled.div`
       }
     }
     .title {
-      text-align: center;
       font-weight: bold;
       margin-bottom: 5px;
-      font-size: 14px;
+      font-size: 24px;
     }
     .description {
+      font-size: 18px;
+      display: -webkit-box;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      line-height: 1.5;
+      -webkit-line-clamp: 6;
+      height: calc(18px * 1.5 * 6);
+    }
+    .price {
       flex: 1;
-      word-break: break-all;
+      color: #666;
     }
     .note {
-      height: 39px;
-      word-break: break-all;
+      display: -webkit-box;
+      word-wrap: break-word;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      line-height: 18px;
+      -webkit-line-clamp: 3;
+      height: calc(18px * 3);
+      color: #666;
     }
   }
   .pager {
     text-align: right;
     font-size: 13px;
-    margin-top: 10px;
+    margin-top: 20px;
     color: #666;
   }
 `;
@@ -96,9 +113,7 @@ const StyledProductList = styled.div`
 const ProductListTemplate = (props) => {
   const { children, productList } = props;
   let totalPage = 5;
-  function slice(string, length, ellipsis = ' ...') {
-    return string.length > length ? string.slice(0, length) + ellipsis : string;
-  }
+
   return (
     <div id="pdf">
       {[...Array(totalPage)].map((pages, index) => {
@@ -118,11 +133,11 @@ const ProductListTemplate = (props) => {
                       </div>
                       <div className="info">
                         <div className="title">{productItem.title}</div>
-                        <div className="price">{productItem.price || 'N/A'}</div>
-                        <div className="description">{slice(productItem.description, 400) || 'N/A'}</div>
+                        <div className="description">{productItem.description || '-'}</div>
+                        <div className="price">{productItem.price || '-'}</div>
                         <div className="note">
-                          <strong>Note:</strong>
-                          {slice(productItem.note, 100) || 'N/A'}
+                          <p>Note:</p>
+                          {productItem.note || '-'}
                         </div>
                       </div>
                       {children}
