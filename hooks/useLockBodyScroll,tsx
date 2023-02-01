@@ -1,0 +1,10 @@
+import { useLayoutEffect } from 'react';
+
+export const useLockBodyScroll = () => {
+  // useEffect 와 다르게 렌더링 되기 전에 동작
+  useLayoutEffect((): (() => void) => {
+    const originalStyle: string = window.getComputedStyle(document.body).overflow;
+    document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = originalStyle);
+  }, []);
+};
