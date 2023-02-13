@@ -1,15 +1,21 @@
-import { PropsWithChildren, useContext } from 'react';
+/** @jsxImportSource @emotion/react */
+import { ComponentProps, PropsWithChildren, useContext } from 'react';
 import { AccordionProps, useAccordionContext } from '.';
-import { StyleAccordionTitle } from '../UI/AccordionStyle';
 import { AccordionIcon } from './AccordionIcon';
 
-const AccordionTitle = ({ children, iconOpen, iconClose }: PropsWithChildren<Partial<AccordionProps>>) => {
-  const { toggleExpandActive } = useAccordionContext();
+const AccordionTitle = ({
+  children,
+  iconOpen,
+  iconClose,
+  styles,
+  ...props
+}: PropsWithChildren<Partial<AccordionProps>> & ComponentProps<'button'>) => {
+  const { toggleExpandActive, AccordionStyle } = useAccordionContext();
   return (
-    <StyleAccordionTitle onClick={toggleExpandActive}>
+    <button css={[AccordionStyle.title, styles]} onClick={toggleExpandActive} {...props}>
       {children}
       <AccordionIcon {...{ iconOpen, iconClose }} />
-    </StyleAccordionTitle>
+    </button>
   );
 };
 

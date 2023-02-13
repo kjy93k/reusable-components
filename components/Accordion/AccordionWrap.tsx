@@ -1,12 +1,12 @@
 import { createContext, useContext, PropsWithChildren, useState, useEffect } from 'react';
-import { useToggleActiveId } from '../../hooks/useToggleActiveId';
+import { useToggleActiveId } from '@/hooks/useToggleActiveId';
 interface AccordionWrapProps {
   multiple?: boolean;
 }
 const AccordionWrapContext = createContext({
-  setDefaultActiveId: (id: string) => {},
   activeId: '',
   toggleActiveId: (id: string) => {},
+  setDefaultActiveId: (id: string) => {},
   multiple: false,
 });
 const useAccordionWrapContext = () => {
