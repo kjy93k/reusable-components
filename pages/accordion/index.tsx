@@ -21,17 +21,6 @@ const DefaultAccordion = () => {
           iconOpen="-열기-"
           iconClose="-접기-"
           isOpen
-          styles={{
-            title: [
-              AccordionStyle.title,
-              css`
-                background-color: black;
-                color: white;
-                border-radius: 10px;
-              `,
-            ],
-            content: AccordionStyle.content,
-          }}
         ></Accordion>
       </Accordion.Wrap>
 

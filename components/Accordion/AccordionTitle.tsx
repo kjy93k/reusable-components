@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { ComponentProps, PropsWithChildren, useContext } from 'react';
+import { ComponentProps } from 'react';
 import { AccordionProps, useAccordionContext } from '.';
 import { AccordionIcon } from './AccordionIcon';
+import { AccordionTitleStyle } from './Accordion.style';
 
 const AccordionTitle = ({
   children,
@@ -9,13 +10,13 @@ const AccordionTitle = ({
   iconClose,
   styles,
   ...props
-}: PropsWithChildren<Partial<AccordionProps>> & ComponentProps<'button'>) => {
-  const { toggleExpandActive, AccordionStyle } = useAccordionContext();
+}: Partial<AccordionProps> & ComponentProps<'button'>) => {
+  const { toggleExpandActive } = useAccordionContext();
   return (
-    <button css={[AccordionStyle.title, styles]} onClick={toggleExpandActive} {...props}>
+    <AccordionTitleStyle css={[styles]} onClick={toggleExpandActive} {...props}>
       {children}
       <AccordionIcon {...{ iconOpen, iconClose }} />
-    </button>
+    </AccordionTitleStyle>
   );
 };
 

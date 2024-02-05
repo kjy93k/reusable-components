@@ -1,20 +1,16 @@
-/** @jsxImportSource @emotion/react */
-import { ComponentProps, PropsWithChildren } from 'react';
+import { ComponentProps } from 'react';
 import { AccordionProps, useAccordionContext } from '.';
+import { AccordionContentStyle } from './Accordion.style';
 
-const AccordionContent = ({
-  children,
-  styles,
-  ...props
-}: PropsWithChildren<Partial<AccordionProps>> & ComponentProps<'div'>) => {
-  const { isActive, AccordionStyle } = useAccordionContext();
+const AccordionContent = ({ children, styles, ...props }: Partial<AccordionProps> & ComponentProps<'div'>) => {
+  const { isActive } = useAccordionContext();
 
   return (
     <>
       {isActive && (
-        <div css={[AccordionStyle.content, styles]} {...props}>
+        <AccordionContentStyle css={[styles]} {...props}>
           {children}
-        </div>
+        </AccordionContentStyle>
       )}
     </>
   );
