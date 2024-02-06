@@ -1,4 +1,4 @@
-/** @jsxImportSource @emotion/react */
+ 
 import { ComponentProps, PropsWithChildren } from 'react';
 import { TabProps, useTabsWrapContext } from './TabsWrap';
 

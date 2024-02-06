@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { IconProps, useAccordionContext } from '.';
 import Image from 'next/image';
 import { css } from '@emotion/react';

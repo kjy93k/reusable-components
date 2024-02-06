@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { ComponentProps } from 'react';
 import { AccordionProps, useAccordionContext } from '.';
 import { AccordionIcon } from './AccordionIcon';

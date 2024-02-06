@@ -1,5 +1,4 @@
 import { Accordion } from '@/components/Accordion';
-import { AccordionStyle } from '@/components/Accordion/Accordion.style';
 import { css } from '@emotion/react';
 const DefaultAccordion = () => {
   return (
