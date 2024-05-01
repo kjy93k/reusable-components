@@ -9,8 +9,8 @@ import { AccordionTitle } from './AccordionTitle';
 import { StyleType } from '@/types';
 
 export interface AccordionProps extends IconProps {
-  title?: string;
-  content?: ReactNode;
+  // title?: string;
+  // content?: ReactNode;
   activeId?: string;
   isOpen?: boolean;
   toggleActiveId?: (id: string) => void;
@@ -52,7 +52,7 @@ const uuid = () => {
  * @property className isOpen: 초기 랜더링 시 액티브 여부
  */
 const Accordion = (props: AccordionProps & ComponentProps<'div'>) => {
-  const { children, title, content, isOpen, iconOpen, iconClose, styles } = props;
+  const { children, isOpen, iconOpen, iconClose, styles } = props;
   const { activeId, toggleActiveId, setDefaultActiveId, multiple } = useAccordionWrapContext();
   // Multiple Active를 위한 state
   const [expand, toggleExpand] = useToggle(!!isOpen);
@@ -85,12 +85,7 @@ const Accordion = (props: AccordionProps & ComponentProps<'div'>) => {
   return (
     <Provider value={value}>
       <div>
-        {children || (
-          <>
-            <Accordion.Title {...{ iconOpen, iconClose }}>{title}</Accordion.Title>
-            <Accordion.Content>{content}</Accordion.Content>
-          </>
-        )}
+        {children}
       </div>
     </Provider>
   );

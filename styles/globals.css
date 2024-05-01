@@ -1,53 +1,147 @@
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-
-*,
-:after,
-:before {
-  box-sizing: border-box;
-  flex-shrink: 0;
-}
 
 :root {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  cursor: default;
-  line-height: 1.5;
-  overflow-wrap: break-word;
-  -moz-tab-size: 4;
-  tab-size: 4;
+  --doc-height: 100%;
+  /* react-tostify override*/
+  --toastify-color-light: #757575;
+  --toastify-text-color-light: #ffffff;
+  --toastify-toast-width: auto;
+  --toastify-font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 }
-
-html,
 body {
-  height: 100%;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
+    'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', sans-serif;
+  color: #232323;
+  line-height: 1.45;
+  overflow-x: auto;
+  min-width: 280px;
+  height: var(--doc-height);
 }
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+.inter {
+  font-family: var(--inter-font);
 }
 
 button {
-  background: none;
-  border: 0;
+  font-family: inherit;
+  border: none;
+  padding: 0;
+  background-color: transparent;
   cursor: pointer;
 }
+button:disabled {
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  cursor: pointer;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
 
+h1 {
+  letter-spacing: -0.25px;
+  font-size: 40px;
+}
+h2 {
+  letter-spacing: -0.25px;
+  font-size: 32px;
+}
+h3 {
+  letter-spacing: -0.25px;
+  font-size: 30px;
+}
+h4 {
+  letter-spacing: -0.25px;
+  font-size: 28px;
+}
+h5 {
+  letter-spacing: -0.25px;
+  font-size: 22px;
+}
 a {
   text-decoration: none;
 }
+::-webkit-scrollbar {
+  background: transparent;
+  width: 2px;
+  height: 2px;
+}
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+/* react-tostify override */
+.Toastify__toast {
+  border-radius: 100px;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.Toastify__toast-container {
+  width: auto;
+  min-width: 230px;
+  bottom: 80px;
+}
+.Toastify__toast-icon {
+  -webkit-margin-end: auto;
+  margin-inline-end: auto;
+  width: auto;
+}
+.Toastify__toast-icon img {
+  -webkit-margin-end: 8px;
+  margin-inline-end: 8px;
+}
+@keyframes swirl-in-fwd {
+  0% {
+    transform: translate3d(0, 80px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.swirl-in-fwd {
+  animation: swirl-in-fwd 0.2s ease-out both;
+}
+@keyframes swirl-out-bck {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.swirl-out-bck {
+  animation: swirl-out-bck 0.3s ease-in both;
+}
+@media screen and (max-width: 480px) {
+  .Toastify__toast-container {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+/* react-loading-skeleton */
+.react-loading-skeleton {
+  z-index: 0;
+}
+
+#portal {
+  z-index: 100;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
 }

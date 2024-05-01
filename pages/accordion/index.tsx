@@ -4,7 +4,7 @@ const DefaultAccordion = () => {
   return (
     <>
       <h2>아코디언 태그 단독 사용 시 Props 종류 예제</h2>
-      <Accordion.Wrap multiple>
+      {/* <Accordion.Wrap multiple>
         <Accordion
           title="Accordion sample title 0"
           content="Accordion sample content 0"
@@ -21,7 +21,7 @@ const DefaultAccordion = () => {
           iconClose="-접기-"
           isOpen
         ></Accordion>
-      </Accordion.Wrap>
+      </Accordion.Wrap> */}
 
       <h2>아코디언 Props 예제</h2>
       <Accordion.Wrap multiple>
